@@ -24,7 +24,7 @@ const props = {
 };
 
 describe("Tabs", () => {
-  it("render a tab head", () => {
+  it("Tab render head", () => {
     const { getByTestId } = render(
       <Tabs {...props}>
         <Tab>Hello</Tab>
@@ -47,5 +47,12 @@ describe("Tabs", () => {
 
     expect(setActiveTab).toHaveBeenCalledTimes(1);
     expect(setActiveTab).toBeCalledWith(0);
+  });
+
+  it("Tab renders a content", () => {
+    const { getByText } = render(<Tab>Hello</Tab>);
+
+    const elem = getByText("Hello");
+    expect(elem.innerHTML).toBe("Hello");
   });
 });
