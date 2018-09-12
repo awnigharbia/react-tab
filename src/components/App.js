@@ -9,8 +9,7 @@ const config = {
   activeColor: "red",
   tabs: [
     {
-      label: "Tab1",
-      disabled: true
+      label: "Tab1"
     },
     {
       label: "Tab1"

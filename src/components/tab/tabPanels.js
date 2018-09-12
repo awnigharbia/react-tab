@@ -16,6 +16,7 @@ export default class TabPanels extends Component {
               activeColor={activeColor}
               key={key}
               disabled={item.disabled}
+              data-testid="head"
               onClick={() =>
                 item.disabled ? null : this.props.setActiveTab(key)
               }
