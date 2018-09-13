@@ -34,7 +34,10 @@ describe("Tabs", () => {
     );
 
     const elem = getByTestId("head");
+    const tabs = getByTestId("tabs");
+
     expect(elem.innerHTML).toBe("Tab1");
+    expect(tabs.children.length).toBe(2);
   });
 
   it("Select a tab", () => {

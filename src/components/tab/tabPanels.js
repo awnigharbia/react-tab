@@ -7,14 +7,12 @@ export default class TabPanels extends Component {
     return (
       <HeadWrapper>
         {this.props.tabs.map((item, key) => {
-          const isActive = activeTab === key;
-
           return (
             <HeadWrapper.head
-              isActive={isActive}
+              key={key}
+              isActive={activeTab === key}
               color={color}
               activeColor={activeColor}
-              key={key}
               disabled={item.disabled}
               data-testid="head"
               onClick={() =>

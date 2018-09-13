@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { TabsWrapper } from "./style";
 import { TabPanels } from "../";
 
@@ -13,24 +13,26 @@ export default class Tabs extends Component {
     const { radius, bottom } = this.props;
 
     return (
-      <TabsWrapper radius={radius}>
-        {bottom
-          ? [
-              this.props.children[this.state.activeTab],
-              <TabPanels
-                {...this.props}
-                {...this.state}
-                setActiveTab={this.setActiveTab}
-              />
-            ]
-          : [
-              <TabPanels
-                {...this.props}
-                {...this.state}
-                setActiveTab={this.setActiveTab}
-              />,
-              this.props.children[this.state.activeTab]
-            ]}
+      <TabsWrapper radius={radius} data-testid="tabs">
+        {bottom ? (
+          <Fragment>
+            {this.props.children[this.state.activeTab]}
+            <TabPanels
+              {...this.props}
+              {...this.state}
+              setActiveTab={this.setActiveTab}
+            />
+          </Fragment>
+        ) : (
+          <Fragment>
+            <TabPanels
+              {...this.props}
+              {...this.state}
+              setActiveTab={this.setActiveTab}
+            />
+            {this.props.children[this.state.activeTab]}
+          </Fragment>
+        )}
       </TabsWrapper>
     );
   }
